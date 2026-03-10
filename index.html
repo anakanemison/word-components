@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Word Parts Atlas</title>
+  <style>
+    :root {
+      --bg-top: #f7f0e5;
+      --bg-bottom: #e6efe9;
+      --panel: rgba(255, 251, 245, 0.88);
+      --panel-strong: rgba(255, 252, 248, 0.96);
+      --ink: #1f2d38;
+      --muted: #5d6b74;
+      --line: #d7c7b6;
+      --accent: #bf6b3f;
+      --accent-deep: #8e4d2a;
+      --accent-soft: #f3ddd0;
+      --teal: #2f6f73;
+      --teal-soft: #dceff0;
+      --gold: #c49c4a;
+      --shadow: 0 18px 44px rgba(46, 38, 30, 0.11);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max-width: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(191, 107, 63, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(47, 111, 115, 0.16), transparent 30%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--teal);
+    }
+
+    .page-shell {
+      width: min(var(--max-width), calc(100% - 1.5rem));
+      margin: 0 auto;
+      padding: 1.25rem 0 3rem;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(255, 251, 245, 0.97), rgba(244, 232, 216, 0.96)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.2) 12px,
+          rgba(255, 255, 255, 0.08) 12px,
+          rgba(255, 255, 255, 0.08) 24px
+        );
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.25rem);
+      margin-top: 0.9rem;
+      max-width: 10ch;
+    }
+
+    .intro {
+      margin: 1rem 0 0;
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .hero-note {
+      margin-top: 0.85rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 66ch;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.35rem;
+    }
+
+    .stat-chip {
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.95rem;
+      color: var(--ink);
+      box-shadow: 0 8px 18px rgba(41, 32, 24, 0.06);
+    }
+
+    .hero-steps {
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 22px;
+      padding: 1rem;
+    }
+
+    .hero-steps h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .step {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(215, 199, 182, 0.9);
+      border-radius: 14px;
+      padding: 0.85rem 0.95rem;
+    }
+
+    .step strong {
+      color: var(--accent-deep);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1rem 0 0;
+      padding: 0.6rem 0;
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(215, 199, 182, 0.92);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      color: var(--ink);
+      box-shadow: 0 8px 20px rgba(45, 34, 25, 0.06);
+    }
+
+    .controls {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 10;
+      margin: 0.35rem 0 1.15rem;
+      padding: 1rem;
+      background: rgba(255, 251, 245, 0.9);
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 1.6fr) repeat(2, minmax(150px, 0.6fr)) auto;
+      gap: 0.8rem;
+      align-items: end;
+    }
+
+    label span {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    input,
+    select,
+    button {
+      font: inherit;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid rgba(188, 166, 144, 0.95);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+    }
+
+    button {
+      padding: 0.78rem 1rem;
+      border: 1px solid rgba(142, 77, 42, 0.95);
+      border-radius: 12px;
+      background: linear-gradient(180deg, #c97849 0%, #af6038 100%);
+      color: #fffaf7;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(1.03);
+    }
+
+    .results-summary {
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    main {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .guide-section {
+      background: rgba(255, 252, 248, 0.42);
+      border-radius: 24px;
+      padding: 0.25rem 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-heading p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      max-width: 74ch;
+    }
+
+    .count-pill {
+      flex-shrink: 0;
+      align-self: start;
+      background: rgba(47, 111, 115, 0.1);
+      border: 1px solid rgba(47, 111, 115, 0.22);
+      border-radius: 999px;
+      color: var(--teal);
+      padding: 0.5rem 0.9rem;
+      font-weight: 700;
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .origin-card {
+      background: var(--panel);
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .origin-header {
+      padding: 1rem 1rem 0.85rem;
+      background: linear-gradient(135deg, rgba(191, 107, 63, 0.1), rgba(47, 111, 115, 0.09));
+      border-bottom: 1px solid rgba(215, 199, 182, 0.9);
+    }
+
+    .origin-header-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .origin-header h3 {
+      font-size: 1.4rem;
+    }
+
+    .mini-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.2rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(215, 199, 182, 0.9);
+      color: var(--accent-deep);
+      font-weight: 700;
+    }
+
+    .origin-note {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.75rem 1rem;
+      border-top: 1px solid rgba(215, 199, 182, 0.75);
+    }
+
+    th {
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.64);
+    }
+
+    .entry-form {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.94rem;
+      color: var(--accent-deep);
+      font-weight: 700;
+    }
+
+    .examples {
+      color: var(--muted);
+    }
+
+    .examples strong {
+      color: var(--ink);
+    }
+
+    .entry-note {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--teal);
+      font-size: 0.86rem;
+    }
+
+    .sources {
+      margin-top: 1.4rem;
+      background: var(--panel-strong);
+      border: 1px solid rgba(215, 199, 182, 0.95);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .sources h2 {
+      margin-top: 0.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .sources p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 0.75rem;
+      padding: 0;
+      margin: 1rem 0 0;
+      list-style: none;
+    }
+
+    .source-list li {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(215, 199, 182, 0.9);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+    }
+
+    .source-list a {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 1rem;
+      padding: 0.65rem 0 0.4rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .control-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .control-grid > :last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        width: min(var(--max-width), calc(100% - 1rem));
+      }
+
+      .hero,
+      .controls,
+      .sources {
+        padding: 1.1rem;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .control-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .control-grid > :last-child {
+        grid-column: auto;
+      }
+
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border-top: 1px solid rgba(215, 199, 182, 0.75);
+        padding: 0.25rem 0;
+      }
+
+      td {
+        border-top: 0;
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+      }
+
+      td::before {
+        display: block;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.15rem;
+      }
+
+      td:nth-child(1)::before {
+        content: "Form";
+      }
+
+      td:nth-child(2)::before {
+        content: "Meaning";
+      }
+
+      td:nth-child(3)::before {
+        content: "Examples";
+      }
+
+      .entry-form {
+        padding-top: 0.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <span class="eyebrow">Morphology Reference</span>
+        <h1>English Word Parts Atlas</h1>
+        <p class="intro">
+          A searchable guide to English roots, prefixes, suffixes, and common combining forms. This version
+          is intentionally broad: it covers classroom staples, productive everyday affixes, and many of the
+          classical elements that show up in academic, scientific, and literary vocabulary.
+        </p>
+        <p class="hero-note">
+          Origins are simplified into broad families such as Latin, Greek, and Old English / Germanic. In real
+          word history, many forms passed through French or scholarly Latin before settling into English.
+        </p>
+        <div class="stats" id="stats"></div>
+      </div>
+
+      <aside class="hero-steps">
+        <h2>How To Decode a New Word</h2>
+        <div class="step-list">
+          <div class="step">
+            <strong>1. Spot the pieces</strong>
+            Look for a beginning chunk, a middle root, and an ending.
+          </div>
+          <div class="step">
+            <strong>2. Start with the root</strong>
+            The root usually carries the core idea, while prefixes and suffixes refine it.
+          </div>
+          <div class="step">
+            <strong>3. Test the whole meaning</strong>
+            Combine the parts and see whether the guess makes sense in context.
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <nav class="quick-nav" aria-label="Quick navigation">
+      <a href="#roots">Roots</a>
+      <a href="#prefixes">Prefixes</a>
+      <a href="#suffixes">Suffixes</a>
+      <a href="#sources">Sources</a>
+    </nav>
+
+    <section class="controls" aria-label="Filters">
+      <div class="control-grid">
+        <label>
+          <span>Search the guide</span>
+          <input id="search-input" type="search" placeholder="Try graph, under-, -ment, sound, or transport">
+        </label>
+
+        <label>
+          <span>Category</span>
+          <select id="category-filter">
+            <option value="all">All categories</option>
+            <option value="roots">Roots</option>
+            <option value="prefixes">Prefixes</option>
+            <option value="suffixes">Suffixes</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Origin</span>
+          <select id="origin-filter">
+            <option value="all">All origins</option>
+            <option value="Latin">Latin</option>
+            <option value="Latin / French">Latin / French</option>
+            <option value="Greek">Greek</option>
+            <option value="Old English / Germanic">Old English / Germanic</option>
+          </select>
+        </label>
+
+        <button id="clear-filters" type="button">Clear filters</button>
+      </div>
+
+      <p class="results-summary" id="results-summary"></p>
+    </section>
+
+    <main id="guide-root"></main>
+
+    <section class="sources" id="sources">
+      <span class="section-kicker">Sources</span>
+      <h2>Reference Notes</h2>
+      <p>
+        I expanded this page using a mix of current language-reference and history-of-English resources. The
+        entries here are paraphrased and simplified for study use rather than copied verbatim from any single list.
+      </p>
+
+      <ul class="source-list">
+        <li>
+          <a href="https://www.scribbr.com/language-rules/root-words/">Scribbr: Root Words | Definition, List &amp; Examples</a>
+          <div class="examples">Used to cross-check common Latin and Greek roots and example patterns.</div>
+        </li>
+        <li>
+          <a href="https://www.thoughtco.com/common-prefixes-in-english-1692724">ThoughtCo: 36 Common Prefixes in English</a>
+          <div class="examples">Used for common modern English prefixes and meaning ranges.</div>
+        </li>
+        <li>
+          <a href="https://www.thoughtco.com/common-suffixes-in-english-1692725">ThoughtCo: 26 Common Suffixes in English</a>
+          <div class="examples">Used for common suffix meanings, especially productive modern endings.</div>
+        </li>
+        <li>
+          <a href="https://www.thoughtco.com/common-word-roots-in-english-1692793">ThoughtCo: Over 50 Greek and Latin Root Words</a>
+          <div class="examples">Used to broaden the root inventory and confirm frequent classroom examples.</div>
+        </li>
+        <li>
+          <a href="https://www.thoughtco.com/greek-latin-roots-stems-prefixes-affixes-4070803">ThoughtCo: Using Greek and Latin Roots to Understand Words</a>
+          <div class="examples">Helpful for classical combining forms that often behave like suffixes in English.</div>
+        </li>
+        <li>
+          <a href="https://oldenglishteaching.arts.gla.ac.uk/Units/4_Vocabulary_OE.html">University of Glasgow: The Vocabulary of Old English</a>
+          <div class="examples">Used to support the Old English / Germanic section and note which native affixes remain active in modern English.</div>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      Built as a single static page so it can deploy directly on GitHub Pages. Search and filters work entirely in the browser.
+    </footer>
+  </div>
+
+  <script>
+    const studyGuide = [
+      {
+        id: "roots",
+        navLabel: "Roots",
+        title: "Roots and Combining Forms",
+        description: "Roots carry the central idea of a word. In modern English, many Greek and Latin roots function as combining forms inside larger words.",
+        origins: [
+          {
+            name: "Latin",
+            note: "Common in academic, literary, legal, and everyday English vocabulary.",
+            items: [
+              { form: "ann", meaning: "year", examples: ["annual", "anniversary"] },
+              { form: "aqu", meaning: "water", examples: ["aquarium", "aquatic"] },
+              { form: "audi", meaning: "hear", examples: ["audible", "auditorium"] },
+              { form: "bene", meaning: "good, well", examples: ["benefit", "benevolent"] },
+              { form: "brev", meaning: "short", examples: ["brief", "abbreviate"] },
+              { form: "ced / cess", meaning: "go, yield", examples: ["precede", "recession"] },
+              { form: "corp / corpor", meaning: "body", examples: ["corporation", "corpse"] },
+              { form: "cred", meaning: "believe, trust", examples: ["credible", "credit"] },
+              { form: "dict", meaning: "say, speak", examples: ["dictate", "dictionary"] },
+              { form: "doc", meaning: "teach", examples: ["doctrine", "docile"] },
+              { form: "duc / duct", meaning: "lead", examples: ["conduct", "introduction"] },
+              { form: "fac / fect", meaning: "make, do", examples: ["manufacture", "perfect"] },
+              { form: "fort", meaning: "strong", examples: ["fortify", "fortress"] },
+              { form: "gen / gener", meaning: "birth, kind, produce", examples: ["generate", "generic"] },
+              { form: "ject", meaning: "throw", examples: ["eject", "trajectory"] },
+              { form: "jur / jus", meaning: "law, right", examples: ["justice", "jurisdiction"] },
+              { form: "luc / lum", meaning: "light", examples: ["lucid", "illuminate"] },
+              { form: "manu", meaning: "hand", examples: ["manual", "manuscript"] },
+              { form: "mis / mit", meaning: "send", examples: ["mission", "transmit"] },
+              { form: "mort", meaning: "death", examples: ["mortal", "postmortem"] },
+              { form: "port", meaning: "carry", examples: ["portable", "transport"] },
+              { form: "rupt", meaning: "break", examples: ["interrupt", "eruption"] },
+              { form: "scrib / script", meaning: "write", examples: ["describe", "manuscript"] },
+              { form: "sens / sent", meaning: "feel", examples: ["sensitive", "resent"] },
+              { form: "spec / spect", meaning: "look", examples: ["inspect", "spectator"] },
+              { form: "struct", meaning: "build", examples: ["construct", "structure"] },
+              { form: "tract", meaning: "draw, pull", examples: ["attract", "contract"] },
+              { form: "vac", meaning: "empty", examples: ["vacuum", "evacuate"] },
+              { form: "vid / vis", meaning: "see", examples: ["visible", "video"] },
+              { form: "voc / vok", meaning: "call, voice", examples: ["vocal", "invoke"] },
+              { form: "viv / vit", meaning: "live, life", examples: ["vivid", "revive"] }
+            ]
+          },
+          {
+            name: "Greek",
+            note: "Especially common in science, medicine, rhetoric, and technical vocabulary.",
+            items: [
+              { form: "aster / astro", meaning: "star", examples: ["asteroid", "astronomy"] },
+              { form: "biblio", meaning: "book", examples: ["bibliography", "bibliophile"] },
+              { form: "bio", meaning: "life", examples: ["biology", "biodegradable"] },
+              { form: "chron", meaning: "time", examples: ["chronology", "chronic"] },
+              { form: "cosm", meaning: "world, order", examples: ["cosmos", "cosmopolitan"] },
+              { form: "demo", meaning: "people", examples: ["democracy", "demography"] },
+              { form: "derm", meaning: "skin", examples: ["dermatology", "epidermis"] },
+              { form: "dynam", meaning: "power", examples: ["dynamic", "dynamo"] },
+              { form: "geo", meaning: "earth", examples: ["geography", "geology"] },
+              { form: "graph", meaning: "write, record", examples: ["autograph", "graphic"] },
+              { form: "hydr", meaning: "water", examples: ["hydrate", "dehydrate"] },
+              { form: "kines", meaning: "movement", examples: ["kinetic", "kinesthesia"] },
+              { form: "log / logos", meaning: "word, reason, study", examples: ["logic", "biology"] },
+              { form: "meter", meaning: "measure", examples: ["diameter", "thermometer"] },
+              { form: "morph", meaning: "form, shape", examples: ["morphology", "metamorphosis"] },
+              { form: "nym / onym", meaning: "name, word", examples: ["synonym", "anonymous"] },
+              { form: "path", meaning: "feeling, suffering, disease", examples: ["empathy", "pathology"] },
+              { form: "phil", meaning: "love", examples: ["philanthropy", "philosophy"] },
+              { form: "phon", meaning: "sound, voice", examples: ["telephone", "symphony"] },
+              { form: "photo", meaning: "light", examples: ["photograph", "photosynthesis"] },
+              { form: "pod / pous", meaning: "foot", examples: ["tripod", "podiatry"] },
+              { form: "psych", meaning: "mind, soul", examples: ["psychology", "psychic"] },
+              { form: "scope", meaning: "look, examine", examples: ["microscope", "telescope"] },
+              { form: "schem", meaning: "plan, form", examples: ["scheme", "schematic"] },
+              { form: "techn", meaning: "skill, art", examples: ["technology", "technic"] },
+              { form: "therm", meaning: "heat", examples: ["thermal", "thermometer"] },
+              { form: "top / topo", meaning: "place", examples: ["topography", "topology"] },
+              { form: "zoo", meaning: "animal", examples: ["zoology", "protozoa"] }
+            ]
+          },
+          {
+            name: "Old English / Germanic",
+            note: "Native roots often remain visible as everyday words and in transparent compounds.",
+            items: [
+              { form: "book", meaning: "written work, volume", examples: ["textbook", "notebook"] },
+              { form: "craft", meaning: "skill, art", examples: ["handicraft", "craftsmanship"] },
+              { form: "folk", meaning: "people", examples: ["folklore", "folksong"] },
+              { form: "hand", meaning: "hand, manual skill", examples: ["handful", "handiwork"] },
+              { form: "home", meaning: "dwelling, home place", examples: ["homeland", "homesick"] },
+              { form: "house", meaning: "dwelling", examples: ["household", "houseboat"] },
+              { form: "kin", meaning: "family, relatives", examples: ["kindred", "kinship"] },
+              { form: "stead", meaning: "place, site", examples: ["instead", "homestead"] },
+              { form: "ward", meaning: "guard, protect", examples: ["warden", "steward"] },
+              { form: "work", meaning: "labor, do", examples: ["workshop", "homework"] },
+              { form: "worth", meaning: "value", examples: ["worthy", "worthwhile"] }
+            ]
+          }
+        ]
+      },
+      {
+        id: "prefixes",
+        navLabel: "Prefixes",
+        title: "Prefixes",
+        description: "Prefixes come before a base or root and usually shift direction, time, number, degree, or attitude.",
+        origins: [
+          {
+            name: "Latin / French",
+            note: "These dominate much of formal, academic, and bureaucratic English.",
+            items: [
+              { form: "ab- / abs-", meaning: "away from", examples: ["absent", "abstract"] },
+              { form: "ad-", meaning: "to, toward", examples: ["adapt", "adhere"] },
+              { form: "ante-", meaning: "before", examples: ["antecedent", "antenatal"] },
+              { form: "circum-", meaning: "around", examples: ["circumference", "circumnavigate"] },
+              { form: "co- / com- / con-", meaning: "with, together", examples: ["cooperate", "connect"] },
+              { form: "contra-", meaning: "against", examples: ["contradict", "contravene"] },
+              { form: "de-", meaning: "down, off, remove", examples: ["defrost", "descend"] },
+              { form: "dis-", meaning: "apart, not", examples: ["disconnect", "disapprove"] },
+              { form: "ex- / e-", meaning: "out, former", examples: ["export", "exhale"] },
+              { form: "extra-", meaning: "beyond, outside", examples: ["extracurricular", "extraterrestrial"] },
+              { form: "in-", meaning: "in, into", examples: ["insert", "invade"] },
+              { form: "in- / im- / il- / ir-", meaning: "not", examples: ["impossible", "irregular"], note: "This negative prefix is distinct from in- meaning 'in' or 'into'." },
+              { form: "inter-", meaning: "between, among", examples: ["interact", "international"] },
+              { form: "intra-", meaning: "within", examples: ["intramural", "intravenous"] },
+              { form: "non-", meaning: "not", examples: ["nonfiction", "nonstop"] },
+              { form: "post-", meaning: "after", examples: ["postwar", "postgraduate"] },
+              { form: "pre-", meaning: "before", examples: ["preview", "preheat"] },
+              { form: "pro-", meaning: "forward, in favor of", examples: ["progress", "prologue"] },
+              { form: "re-", meaning: "again, back", examples: ["rebuild", "return"] },
+              { form: "semi-", meaning: "half", examples: ["semicircle", "semifinal"] },
+              { form: "sub-", meaning: "under, below", examples: ["submarine", "submerge"] },
+              { form: "super-", meaning: "above, beyond", examples: ["supervise", "superhuman"] },
+              { form: "trans-", meaning: "across, through", examples: ["transfer", "transatlantic"] },
+              { form: "ultra-", meaning: "beyond, extreme", examples: ["ultraviolet", "ultramodern"] }
+            ]
+          },
+          {
+            name: "Greek",
+            note: "Frequent in science, philosophy, medicine, and modern technical coinages.",
+            items: [
+              { form: "a- / an-", meaning: "not, without", examples: ["amoral", "anhydrous"] },
+              { form: "anti-", meaning: "against, opposite", examples: ["antibiotic", "antithesis"] },
+              { form: "auto-", meaning: "self", examples: ["autobiography", "autopilot"] },
+              { form: "dia-", meaning: "through, across", examples: ["diameter", "diagonal"] },
+              { form: "dys-", meaning: "bad, difficult", examples: ["dysfunction", "dyslexia"] },
+              { form: "eu-", meaning: "good, well", examples: ["euphemism", "euphoria"] },
+              { form: "hyper-", meaning: "over, excessive", examples: ["hyperactive", "hypertension"] },
+              { form: "hypo-", meaning: "under, below", examples: ["hypodermic", "hypothermia"] },
+              { form: "meta-", meaning: "beyond, change", examples: ["metamorphosis", "metadata"] },
+              { form: "mono-", meaning: "one, single", examples: ["monochrome", "monologue"] },
+              { form: "pan-", meaning: "all", examples: ["pandemic", "panorama"] },
+              { form: "para-", meaning: "beside, beyond", examples: ["parallel", "paranormal"] },
+              { form: "peri-", meaning: "around", examples: ["perimeter", "periscope"] },
+              { form: "poly-", meaning: "many", examples: ["polygon", "polyglot"] },
+              { form: "pseudo-", meaning: "false", examples: ["pseudonym", "pseudoscience"] },
+              { form: "syn- / sym-", meaning: "together, with", examples: ["synchronize", "symmetry"] },
+              { form: "tele-", meaning: "far, at a distance", examples: ["telephone", "teleport"] }
+            ]
+          },
+          {
+            name: "Old English / Germanic",
+            note: "Native English prefixes still shape many everyday compounds and verbs.",
+            items: [
+              { form: "after-", meaning: "after, behind", examples: ["afterlife", "aftershock"] },
+              { form: "be-", meaning: "around, thoroughly, cause to be", examples: ["befriend", "belittle"] },
+              { form: "fore-", meaning: "before, in front", examples: ["forecast", "forehead"] },
+              { form: "mis-", meaning: "wrongly, badly", examples: ["misread", "misplace"] },
+              { form: "out-", meaning: "beyond, more than", examples: ["outgrow", "outrun"] },
+              { form: "over-", meaning: "above, excessively", examples: ["overcook", "overreact"] },
+              { form: "self-", meaning: "of oneself, by oneself", examples: ["self-control", "self-taught"] },
+              { form: "under-", meaning: "below, insufficiently", examples: ["underpay", "underestimate"] },
+              { form: "un-", meaning: "not, reverse", examples: ["unhappy", "untie"] },
+              { form: "up-", meaning: "upward, higher", examples: ["upgrade", "uplift"] },
+              { form: "with-", meaning: "against, back, away", examples: ["withdraw", "withstand"] }
+            ]
+          }
+        ]
+      },
+      {
+        id: "suffixes",
+        navLabel: "Suffixes",
+        title: "Suffixes and Common Endings",
+        description: "Suffixes attach to the end of a base and often signal part of speech, degree, field of study, or type of action.",
+        origins: [
+          {
+            name: "Latin / French",
+            note: "These are highly productive in formal writing and learned vocabulary.",
+            items: [
+              { form: "-able / -ible", meaning: "capable of being", examples: ["readable", "visible"] },
+              { form: "-acy", meaning: "state, quality", examples: ["privacy", "diplomacy"] },
+              { form: "-age", meaning: "collection, action, result", examples: ["breakage", "mileage"] },
+              { form: "-al", meaning: "act, process, or relating to", examples: ["refusal", "regional"] },
+              { form: "-ance / -ence", meaning: "state, quality", examples: ["patience", "importance"] },
+              { form: "-ant / -ent", meaning: "one who, or having the quality", examples: ["assistant", "resident"] },
+              { form: "-ary", meaning: "related to, place for", examples: ["planetary", "sanctuary"] },
+              { form: "-ate", meaning: "make, become, or verb/adjective ending", examples: ["activate", "vaccinate"] },
+              { form: "-ation / -tion", meaning: "act, process, result", examples: ["creation", "migration"] },
+              { form: "-cide", meaning: "killing, killer", examples: ["homicide", "pesticide"] },
+              { form: "-eer", meaning: "associated person", examples: ["engineer", "auctioneer"] },
+              { form: "-ess", meaning: "traditional feminine noun ending", examples: ["lioness", "actress"], note: "Now less productive than it once was." },
+              { form: "-esque", meaning: "in the style of", examples: ["picturesque", "statuesque"] },
+              { form: "-ette", meaning: "small version", examples: ["kitchenette", "diskette"] },
+              { form: "-ify", meaning: "make or become", examples: ["clarify", "magnify"] },
+              { form: "-ity", meaning: "state, quality", examples: ["clarity", "activity"] },
+              { form: "-ive", meaning: "having the nature of", examples: ["creative", "responsive"] },
+              { form: "-ment", meaning: "result, means, condition", examples: ["agreement", "movement"] },
+              { form: "-ory", meaning: "place for or relating to", examples: ["observatory", "advisory"] },
+              { form: "-ous / -eous / -ious", meaning: "full of, characterized by", examples: ["hazardous", "curious"] },
+              { form: "-ure", meaning: "act, process, result", examples: ["closure", "exposure"] }
+            ]
+          },
+          {
+            name: "Greek",
+            note: "These often appear in learned vocabulary, especially the sciences and humanities.",
+            items: [
+              { form: "-archy", meaning: "rule, government", examples: ["monarchy", "hierarchy"] },
+              { form: "-cracy", meaning: "rule, government", examples: ["democracy", "bureaucracy"] },
+              { form: "-gamy", meaning: "marriage, union", examples: ["monogamy", "polygamy"] },
+              { form: "-graphy", meaning: "writing, recording, field of description", examples: ["biography", "geography"] },
+              { form: "-ism", meaning: "doctrine, practice, system", examples: ["realism", "activism"] },
+              { form: "-ist", meaning: "person who practices or studies", examples: ["artist", "botanist"] },
+              { form: "-logy", meaning: "study of", examples: ["geology", "zoology"] },
+              { form: "-mania", meaning: "obsession, frenzy", examples: ["pyromania", "Beatlemania"] },
+              { form: "-meter", meaning: "measuring device or unit", examples: ["speedometer", "thermometer"] },
+              { form: "-nomy", meaning: "system of laws or arrangement", examples: ["astronomy", "taxonomy"] },
+              { form: "-onym", meaning: "name, word", examples: ["acronym", "synonym"] },
+              { form: "-phile", meaning: "lover of", examples: ["audiophile", "bibliophile"] },
+              { form: "-phobia", meaning: "fear of, aversion to", examples: ["arachnophobia", "xenophobia"] },
+              { form: "-phone", meaning: "sound, voice, device", examples: ["telephone", "xylophone"] },
+              { form: "-scope", meaning: "viewing instrument, examination", examples: ["microscope", "horoscope"] },
+              { form: "-therapy", meaning: "treatment", examples: ["physiotherapy", "psychotherapy"] },
+              { form: "-tomy", meaning: "cutting, incision", examples: ["lobotomy", "tracheotomy"] }
+            ]
+          },
+          {
+            name: "Old English / Germanic",
+            note: "Native endings remain highly visible in everyday English word-building.",
+            items: [
+              { form: "-dom", meaning: "state, realm", examples: ["freedom", "kingdom"] },
+              { form: "-ed", meaning: "past participle, having", examples: ["painted", "winged"], note: "Often grammatical rather than purely derivational." },
+              { form: "-en", meaning: "made of, become", examples: ["wooden", "strengthen"] },
+              { form: "-er", meaning: "one who, more", examples: ["runner", "faster"], note: "Can mark either an agent noun or a comparative adjective." },
+              { form: "-ful", meaning: "full of", examples: ["joyful", "helpful"] },
+              { form: "-hood", meaning: "state, collective group", examples: ["childhood", "neighborhood"] },
+              { form: "-ing", meaning: "action, process, ongoing form", examples: ["reading", "painting"], note: "Another ending with both grammatical and word-building roles." },
+              { form: "-ish", meaning: "somewhat, like", examples: ["childish", "greenish"] },
+              { form: "-less", meaning: "without", examples: ["careless", "fearless"] },
+              { form: "-like", meaning: "resembling", examples: ["childlike", "dreamlike"] },
+              { form: "-ly", meaning: "like, in the manner of", examples: ["friendly", "quickly"] },
+              { form: "-ness", meaning: "state, quality", examples: ["kindness", "darkness"] },
+              { form: "-ship", meaning: "status, relationship, skill", examples: ["friendship", "leadership"] },
+              { form: "-some", meaning: "tending to, causing", examples: ["troublesome", "fearsome"] },
+              { form: "-th", meaning: "act or state", examples: ["growth", "warmth"] },
+              { form: "-ward", meaning: "toward a direction", examples: ["eastward", "homeward"] },
+              { form: "-wise", meaning: "manner, direction, respect", examples: ["clockwise", "otherwise"] },
+              { form: "-y", meaning: "characterized by, full of", examples: ["rainy", "sleepy"] }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const guideRoot = document.getElementById("guide-root");
+    const statsRoot = document.getElementById("stats");
+    const searchInput = document.getElementById("search-input");
+    const categoryFilter = document.getElementById("category-filter");
+    const originFilter = document.getElementById("origin-filter");
+    const clearFilters = document.getElementById("clear-filters");
+    const resultsSummary = document.getElementById("results-summary");
+
+    function totalEntries() {
+      return studyGuide.reduce((sectionTotal, section) => {
+        return sectionTotal + section.origins.reduce((originTotal, origin) => originTotal + origin.items.length, 0);
+      }, 0);
+    }
+
+    function sectionCount(section) {
+      return section.origins.reduce((total, origin) => total + origin.items.length, 0);
+    }
+
+    function renderStats() {
+      const total = totalEntries();
+      statsRoot.innerHTML = [
+        `<span class="stat-chip">${total} entries total</span>`,
+        ...studyGuide.map((section) => `<span class="stat-chip">${sectionCount(section)} ${section.navLabel.toLowerCase()}</span>`)
+      ].join("");
+    }
+
+    function renderGuide() {
+      guideRoot.innerHTML = studyGuide.map((section) => `
+        <section class="guide-section" id="${section.id}">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">${section.navLabel}</span>
+              <h2>${section.title}</h2>
+              <p>${section.description}</p>
+            </div>
+            <div class="count-pill">${sectionCount(section)} entries</div>
+          </div>
+
+          <div class="origin-grid">
+            ${section.origins.map((origin) => `
+              <article class="origin-card" data-origin-card data-section="${section.id}" data-origin="${origin.name}">
+                <div class="origin-header">
+                  <div class="origin-header-top">
+                    <h3>${origin.name}</h3>
+                    <span class="mini-count">${origin.items.length}</span>
+                  </div>
+                  <p class="origin-note">${origin.note}</p>
+                </div>
+
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Form</th>
+                        <th>Meaning</th>
+                        <th>Examples</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${origin.items.map((item) => {
+                        const searchBlob = [
+                          section.id,
+                          origin.name,
+                          item.form,
+                          item.meaning,
+                          item.examples.join(" "),
+                          item.note || ""
+                        ].join(" ").toLowerCase();
+
+                        return `
+                          <tr class="entry-row"
+                              data-entry-row
+                              data-category="${section.id}"
+                              data-origin="${origin.name}"
+                              data-search="${searchBlob}">
+                            <td class="entry-form">${item.form}</td>
+                            <td>${item.meaning}</td>
+                            <td class="examples">
+                              <strong>Examples:</strong> ${item.examples.join(", ")}
+                              ${item.note ? `<span class="entry-note">${item.note}</span>` : ""}
+                            </td>
+                          </tr>
+                        `;
+                      }).join("")}
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      const selectedCategory = categoryFilter.value;
+      const selectedOrigin = originFilter.value;
+      const rows = Array.from(document.querySelectorAll("[data-entry-row]"));
+      let visibleCount = 0;
+
+      rows.forEach((row) => {
+        const matchesQuery = !query || row.dataset.search.includes(query);
+        const matchesCategory = selectedCategory === "all" || row.dataset.category === selectedCategory;
+        const matchesOrigin = selectedOrigin === "all" || row.dataset.origin === selectedOrigin;
+        const isVisible = matchesQuery && matchesCategory && matchesOrigin;
+
+        row.classList.toggle("hidden", !isVisible);
+
+        if (isVisible) {
+          visibleCount += 1;
+        }
+      });
+
+      document.querySelectorAll("[data-origin-card]").forEach((card) => {
+        const cardVisibleRows = Array.from(card.querySelectorAll("[data-entry-row]")).filter((row) => !row.classList.contains("hidden"));
+        card.classList.toggle("hidden", cardVisibleRows.length === 0);
+      });
+
+      document.querySelectorAll(".guide-section").forEach((section) => {
+        const visibleCards = Array.from(section.querySelectorAll("[data-origin-card]")).filter((card) => !card.classList.contains("hidden"));
+        section.classList.toggle("hidden", visibleCards.length === 0);
+      });
+
+      const total = totalEntries();
+      resultsSummary.textContent = visibleCount === total && !query && selectedCategory === "all" && selectedOrigin === "all"
+        ? `Showing all ${total} entries.`
+        : `Showing ${visibleCount} of ${total} entries.`;
+    }
+
+    searchInput.addEventListener("input", applyFilters);
+    categoryFilter.addEventListener("change", applyFilters);
+    originFilter.addEventListener("change", applyFilters);
+    clearFilters.addEventListener("click", () => {
+      searchInput.value = "";
+      categoryFilter.value = "all";
+      originFilter.value = "all";
+      applyFilters();
+      searchInput.focus();
+    });
+
+    renderStats();
+    renderGuide();
+    applyFilters();
+  </script>
+</body>
+</html>
